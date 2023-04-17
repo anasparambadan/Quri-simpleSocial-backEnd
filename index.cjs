@@ -13,8 +13,8 @@ import cors from 'cors'
 const app = express()
 
 //Public resource folder
-app.use(express.static(__dirname + '/tmp'))
-app.use('/tmp',express.static("tmp"))
+app.use(express.static(__dirname,'/tmp'))
+app.use('/temp',express.static("tmp"))
 
 
 //middleWares
