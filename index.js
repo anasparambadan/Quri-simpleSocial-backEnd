@@ -14,7 +14,7 @@ const app = express()
 
 //Public resource folder
 app.use(express.static('public'))
-app.use('/temp',express.static("tmp"))
+app.use('/images',express.static("images"))
 
 
 //middleWares
