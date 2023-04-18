@@ -19,8 +19,8 @@ app.use('/images',express.static("images"))
 
 //middleWares
 dotenv.config()
-app.use(bodyParser.json({extended:true}))
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json({extended:true,limit: '50mb'}))
+app.use(bodyParser.urlencoded({extended:true,}))
 app.use(cors())
 
 
