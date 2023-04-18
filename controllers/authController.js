@@ -45,10 +45,10 @@ export const loginUser = async (req, res) => {
         if (user) {
             const passwordValidity = await bcrypt.compare(password, user.password)
             if (!passwordValidity) {
-                res.status(400).json({ message: "Wrong Password" })
+                res.status(200).json({ message: "Wrong Password" })
             }
             else {
-                const token = jwt.sign({
+                const token = jwt.sign({    
                     email: user.email, id: user._id
                 }, process.env.JWT_KEY, { expiresIn: "1h" })
                 
@@ -56,7 +56,7 @@ export const loginUser = async (req, res) => {
             }
         }
         else {
-            res.status(404).json({ message: "User not found" })
+            res.status(200).json({ message: "User not found" })
         }
     } catch (error) {
         res.status(500).json({ message: error.message })
